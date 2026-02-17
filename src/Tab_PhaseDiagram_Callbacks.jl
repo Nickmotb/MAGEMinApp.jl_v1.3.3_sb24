@@ -307,14 +307,10 @@ function Tab_PhaseDiagram_Callbacks(app)
             fileout         = fname*output_bib
             magemin         = "MAGEMin"
             bib             = import_bibtex("./references/references.bib")
-            
-            print("\nSaving references for computed phase diagram\n")
-            print("output path: $(pwd())\n")
 
             n_ref           = length(bib.keys)
             id_db           = findfirst(bib[bib.keys[i]].fields["info"] .== dtb for i=1:n_ref)
             id_magemin      = findfirst(bib[bib.keys[i]].fields["info"] .== magemin for i=1:n_ref)
-            
             selection       = String[]
 
             push!(selection, String(bib.keys[id_db]))
